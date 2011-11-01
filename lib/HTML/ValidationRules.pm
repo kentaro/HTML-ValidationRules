@@ -164,6 +164,16 @@ Kentaro Kuribayashi E<lt>kentarok@gmail.comE<gt>
 
 =head1 SEE ALSO
 
+=over
+
+=item * L<http://dev.w3.org/html5/spec/Overview.html#client-side-form-validation>
+
+=item * L<http://dev.w3.org/html5/spec/Overview.html#the-input-element>
+
+=item * L<http://dev.w3.org/html5/spec/Overview.html#the-textarea-element>
+
+=back
+
 =head1 LICENSE
 
 Copyright (C) Kentaro Kuribayashi
