@@ -28,7 +28,9 @@ auto_set_repository;
 requires 'autodie';
 requires 'HTML::Parser';
 requires 'Scalar::Util::Numeric';
-requires 'FormValidator::Simple';
+
+recommends 'FormValidator::Simple';
+recommends 'FormValidator::Lite';
 
 tests 't/*.t t/*/*.t t/*/*/*.t t/*/*/*/*.t';
 
