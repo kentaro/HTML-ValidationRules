@@ -75,3 +75,92 @@ abc
 <input name=abc pattern="[0-9]+">
 #input
 abc=
+
+#html
+<input type=number name=n>
+#input
+n=120
+
+#html
+<input type=number name=n>
+#input
+n=abc
+#invalid
+n
+
+#html
+<input type=range name=n>
+#input
+n=120
+
+#html
+<input type=range name=n>
+#input
+n=-120
+
+#html
+<input type=range name=n>
+#input
+n=120.12
+
+#html
+<input type=range name=n>
+#input
+n=abc
+#invalid
+n
+
+#html
+<input type=range name=n>
+#input
+n=
+
+#html
+<input type=range name=n>
+#input
+
+#html
+<input type=number name=n min=120>
+#input
+n=120
+
+#html
+<input type=number name=n min=120>
+#input
+n=110
+#invalid
+n
+
+#html
+<input type=number name=n min=120>
+#input
+n=121
+
+#html
+<input type=number name=n max=120>
+#input
+n=120
+
+#html
+<input type=number name=n max=120>
+#input
+n=110
+
+#html
+<input type=number name=n max=120>
+#input
+n=121
+#invalid
+n
+
+#html
+<input type=number name=n min=12e+2>
+#input
+n=1200
+
+#html
+<input type=number name=n min=12e+2>
+#input
+n=1199
+#invalid
+n

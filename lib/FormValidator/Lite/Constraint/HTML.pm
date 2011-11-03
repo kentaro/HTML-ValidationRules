@@ -48,7 +48,7 @@ rule HTML_MIN => sub {
     croak 'Validation HTML_MIN requires numeric value'
         if !defined $min || !Scalar::Util::Numeric::isnum($min);
 
-    $_ => $min ? 1 : 0;
+    $_ >= $min ? 1 : 0;
 };
 
 rule HTML_PATTERN => sub {

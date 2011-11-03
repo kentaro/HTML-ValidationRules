@@ -17,6 +17,7 @@ my %ELEMENTS = (
             url
             email
             number
+            range
         )],
     }],
 
@@ -82,8 +83,9 @@ sub start {
     my @rules;
     my $attrs = $ATTRS_MAP{lc $tag};
 
-    if (defined $attr->{type} && $TYPE_ATTR_MAP{$attr->{type} || ''}) {
+    if (defined $attr->{type} && $TYPE_ATTR_MAP{lc $attr->{type} || ''}) {
         my $type = $attr->{type};
+        $type = 'number' if (lc $type) eq 'range';
         unshift @rules, key($type);
         $attrseq = [ grep { lc $_ ne 'type' } @$attrseq ];
     }

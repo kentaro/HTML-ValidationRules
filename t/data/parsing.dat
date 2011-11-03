@@ -63,3 +63,129 @@ HTML_MAXLENGTH 45
 | 
 | hoge
 | NOT_BLANK
+
+#html
+<input type=number name=num min=10>
+#parsed
+| num
+| HTML_MIN 10
+| HTML_NUMBER
+
+#html
+<input type=number name=num min=-10>
+#parsed
+| num
+| HTML_MIN -10
+| HTML_NUMBER
+
+#html
+<input type=number name=num min=10.12>
+#parsed
+| num
+| HTML_MIN 10.12
+| HTML_NUMBER
+
+#html
+<input type=number name=num min=-10.12>
+#parsed
+| num
+| HTML_MIN -10.12
+| HTML_NUMBER
+
+#html
+<input type=number name=num min=10e6>
+#parsed
+| num
+| HTML_MIN 10e6
+| HTML_NUMBER
+
+#html
+<input type=number name=num min=10e+6>
+#parsed
+| num
+| HTML_MIN 10e+6
+| HTML_NUMBER
+
+#html
+<input type=number name=num min=10e-6>
+#parsed
+| num
+| HTML_MIN 10e-6
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=10>
+#parsed
+| num
+| HTML_MAX 10
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=-10>
+#parsed
+| num
+| HTML_MAX -10
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=10.12>
+#parsed
+| num
+| HTML_MAX 10.12
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=-10.12>
+#parsed
+| num
+| HTML_MAX -10.12
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=10e6>
+#parsed
+| num
+| HTML_MAX 10e6
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=10e+6>
+#parsed
+| num
+| HTML_MAX 10e+6
+| HTML_NUMBER
+
+#html
+<input type=number name=num max=10e-6>
+#parsed
+| num
+| HTML_MAX 10e-6
+| HTML_NUMBER
+
+#html
+<input type=NUMBEr name=num min=120>
+#parsed
+| num
+| HTML_MIN 120
+| HTML_NUMBER
+
+#html
+<input type=range name=num min=120>
+#parsed
+| num
+| HTML_MIN 120
+| HTML_NUMBER
+
+#html
+<input type=range name=num max=120>
+#parsed
+| num
+| HTML_MAX 120
+| HTML_NUMBER
+
+#html
+<input type=RANGE name=num max=120>
+#parsed
+| num
+| HTML_MAX 120
+| HTML_NUMBER
