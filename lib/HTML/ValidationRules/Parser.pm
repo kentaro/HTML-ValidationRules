@@ -62,7 +62,7 @@ sub load_rules {
     }
     else {
         $self->parser->parse($html);
-        $self->eof;
+        $self->parser->eof;
     }
 
     $self->parser->{rules};
