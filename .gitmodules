@@ -1,0 +1,3 @@
+[submodule "modules/testdataparser"]
+	path = modules/testdataparser
+	url = git://github.com/wakaba/testdataparser.git
