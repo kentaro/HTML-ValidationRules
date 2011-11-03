@@ -128,23 +128,23 @@ String of HTML.
 
 =head1 SUPPORTED ATTRIBUTES
 
-C<input>, C<textare>, and C<select> can have some attributes related
-to validation. This module haven't support all the attrs defined in
-HTML5 spec at all, just have done below yet:
+HTML C<input>, C<textare>, and C<select> elements can have some
+attributes related to validation. This module haven't support all the
+attrs defined in HTML5 spec at all, just have done below yet:
 
 =over
 
-=item * max
+=item * max (input)
 
-=item * maxlength
+=item * maxlength (input, textarea)
 
-=item * min
+=item * min (input)
 
-=item * pattern
+=item * pattern (input)
 
-=item * required
+=item * required (input, textarea, select)
 
-=item * type
+=item * type (input)
 
 =over
 
@@ -153,6 +153,8 @@ HTML5 spec at all, just have done below yet:
 =item * type:email
 
 =item * type:number
+
+=item * type:range
 
 =back
 
