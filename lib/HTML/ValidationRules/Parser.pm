@@ -24,6 +24,10 @@ my %ELEMENTS = (
         maxlength
         required
     )],
+
+    select => [qw(
+        required
+    )],
 );
 
 my $ELEMENTS_PATTERN = qr/(@{[join '|', (map { quotemeta } keys %ELEMENTS)]})/o;

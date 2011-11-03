@@ -16,3 +16,22 @@ foo
 foo=
 #invalid
 foo
+
+#html
+<input type=radio name=hoge value=1 required>
+<input type=radio name=hoge value=2>
+#input
+hoge=1
+
+#html
+<input type=radio name=hoge value=1 required>
+<input type=radio name=hoge value=2>
+#input
+hoge=2
+
+#html
+<input type=radio name=hoge value=1 required>
+<input type=radio name=hoge value=2>
+#input
+#invalid
+hoge

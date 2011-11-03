@@ -36,3 +36,30 @@ HTML_MAXLENGTH 45
 | HTML_MAXLENGTH 255
 | HTML_URL
 | NOT_BLANK
+
+#html
+<select name=foo>
+  <option>a
+</select>
+#parsed
+| foo
+| 
+
+#html
+<select name=foo required>
+  <option>a
+  <option>b
+</select>
+#parsed
+| foo
+| NOT_BLANK
+
+#html
+<input type=radio name=hoge value=1 required>
+<input type=radio name=hoge value=2>
+#parsed
+| hoge
+| 
+| 
+| hoge
+| NOT_BLANK
