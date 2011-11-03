@@ -35,3 +35,43 @@ hoge=2
 #input
 #invalid
 hoge
+
+#html
+<input name=abc pattern="[0-9]+">
+#input
+abc=12345
+
+#html
+<input name=abc pattern="[0-9]+">
+#input
+abc=12345.12
+#invalid
+abc
+
+#html
+<input name=abc pattern="[0-9]+\.a">
+#input
+abc=12345.a
+
+#html
+<input name=abc pattern="[0-9]+\.a">
+#input
+abc=12345.abc
+#invalid
+abc
+
+#html
+<input name=abc pattern="[0-9]+">
+#input
+abc=xyz
+#invalid
+abc
+
+#html
+<input name=abc pattern="[0-9]+">
+#input
+
+#html
+<input name=abc pattern="[0-9]+">
+#input
+abc=

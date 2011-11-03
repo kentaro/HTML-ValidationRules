@@ -14,7 +14,7 @@ for my $file (qw(form.html form.tt)) {
     my $rules2  = $parser2->load_rules(file => 't/data/' . $file);
 
     is_deeply $_ => [
-        text     => [ [ HTML_PATTERN => '[[:alnum:]]+' ], [ HTML_MAXLENGTH => 255 ] ],
+        text     => [ [ HTML_PATTERN => '[A-Za-z0-9]+' ], [ HTML_MAXLENGTH => 255 ] ],
         url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'NOT_BLANK'     ],
         email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'NOT_BLANK'     ],
         number   => [ HTML_NUMBER => [ HTML_MIN => 200 ], [ HTML_MAX => 800 ]       ],

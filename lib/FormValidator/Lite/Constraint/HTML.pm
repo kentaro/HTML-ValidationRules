@@ -52,7 +52,7 @@ rule HTML_MIN => sub {
 };
 
 rule HTML_PATTERN => sub {
-    rule_of('REGEX')->(shift);
+    rule_of('REGEX')->('^(?:' . shift() . ')$');
 };
 
 !!1;

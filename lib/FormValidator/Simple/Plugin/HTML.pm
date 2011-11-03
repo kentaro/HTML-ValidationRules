@@ -65,10 +65,10 @@ sub HTML_MIN {
 
 sub HTML_PATTERN {
     my ($self, $params, $args) = @_;
-    my $data    = $params->[0]  || '';
-    my $pattern = $args->[0]    || '';
+    my $data    = defined $params->[0] ? $params->[0] : '';
+    my $pattern = defined $args->[0] ? $args->[0] : '';
 
-    $data =~ qr/$pattern/ ? SUCCESS : FAIL;
+    $data =~ qr/^(?:$pattern)$/ ? SUCCESS : FAIL;
 }
 
 !!1;

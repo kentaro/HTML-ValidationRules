@@ -44,7 +44,7 @@ Element
     </head>
     <body>
       <form method="post" action="/post">
-        <input type="text" name="text" pattern="[[:alnum:]]+" maxlength="255" />
+        <input type="text" name="text" pattern="[A-Za-z0-9]+" maxlength="255" />
         <input type="url" name="url" maxlength="255" required />
         <input type="email" name="email" maxlength="255" required="required" />
         <input type="number" name="number" min="200" max="800" />
@@ -61,7 +61,7 @@ Element
 
   # rules will be extracted as follows:
   [
-      text     => [ [ HTML_PATTERN => '[[:alnum:]]+' ], [ HTML_MAXLENGTH => 255 ] ],
+      text     => [ [ HTML_PATTERN => '[A-Za-z0-9]+' ], [ HTML_MAXLENGTH => 255 ] ],
       url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
       email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
       number   => [ HTML_NUMBER => [ HTML_MIN => 200 ], [ HTML_MAX => 800 ]       ],
@@ -128,9 +128,9 @@ String of HTML.
 
 =head1 SUPPORTED ATTRIBUTES
 
-C<input> and C<textare> can have some attributes related to
-validation. This module haven't support all the attrs defined in HTML5
-spec at all, just have done below yet:
+C<input>, C<textare>, and C<select> can have some attributes related
+to validation. This module haven't support all the attrs defined in
+HTML5 spec at all, just have done below yet:
 
 =over
 
@@ -158,6 +158,13 @@ spec at all, just have done below yet:
 
 =back
 
+=head1 BUGS
+
+The C<pattern> attribute is interpreted as a Perl regular expression,
+not a JavaScript regular expression as defined by the HTML spec.
+Please use common subset of Perl and JavaScript regular expression
+languages to keep compatibility with both Perl and Web browsers.
+
 =head1 AUTHOR
 
 Kentaro Kuribayashi E<lt>kentarok@gmail.comE<gt>
@@ -166,11 +173,11 @@ Kentaro Kuribayashi E<lt>kentarok@gmail.comE<gt>
 
 =over
 
-=item * L<http://dev.w3.org/html5/spec/Overview.html#client-side-form-validation>
+=item * L<http://www.whatwg.org/specs/web-apps/current-work/multipage/#client-side-form-validation>
 
-=item * L<http://dev.w3.org/html5/spec/Overview.html#the-input-element>
+=item * L<http://www.whatwg.org/specs/web-apps/current-work/multipage/#the-input-element>
 
-=item * L<http://dev.w3.org/html5/spec/Overview.html#the-textarea-element>
+=item * L<http://www.whatwg.org/specs/web-apps/current-work/multipage/#the-textarea-element>
 
 =back
 

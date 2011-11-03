@@ -45,7 +45,7 @@ for_each_test 't/data/validation.dat', {
     {
         my $result = FormValidator::Simple->check($query => $rules);
 
-        is !!$result->valid($_), !!$param{$_}, $_ for keys %param;
+        is !!$result->record($_)->is_valid, !!$param{$_}, $_ for keys %param;
     }
 };
 
