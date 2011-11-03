@@ -63,12 +63,6 @@ sub HTML_MIN {
     $data >= $min ? SUCCESS : FAIL;
 }
 
-sub HTML_REQUIRED {
-    my ($self, $params, $args) = @_;
-    my $data = $params->[0];
-    defined $data ? SUCCESS : FAIL;
-}
-
 sub HTML_PATTERN {
     my ($self, $params, $args) = @_;
     my $data    = $params->[0]  || '';

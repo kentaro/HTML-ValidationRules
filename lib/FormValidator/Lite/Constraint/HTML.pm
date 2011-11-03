@@ -51,10 +51,6 @@ rule HTML_MIN => sub {
     $_ => $min ? 1 : 0;
 };
 
-rule HTML_REQUIRED => sub {
-    rule_of('NOT_NULL')->();
-};
-
 rule HTML_PATTERN => sub {
     rule_of('REGEX')->(shift);
 };

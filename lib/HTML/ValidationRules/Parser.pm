@@ -102,6 +102,7 @@ sub start {
 
 sub key {
     my $key = shift;
+    return 'NOT_BLANK' if $key eq 'required';
     sprintf 'HTML_%s', uc $key;
 }
 
