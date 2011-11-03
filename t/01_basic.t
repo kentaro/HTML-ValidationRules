@@ -15,10 +15,10 @@ for my $file (qw(form.html form.tt)) {
 
     is_deeply $_ => [
         text     => [ [ HTML_PATTERN => '[[:alnum:]]+' ], [ HTML_MAXLENGTH => 255 ] ],
-        url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
-        email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
+        url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'NOT_BLANK'     ],
+        email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'NOT_BLANK'     ],
         number   => [ HTML_NUMBER => [ HTML_MIN => 200 ], [ HTML_MAX => 800 ]       ],
-        textarea => [ [ HTML_MAXLENGTH => 1000 ], 'HTML_REQUIRED'                   ],
+        textarea => [ [ HTML_MAXLENGTH => 1000 ], 'NOT_BLANK'                   ],
     ] for ($rules1, $rules2);
 }
 
