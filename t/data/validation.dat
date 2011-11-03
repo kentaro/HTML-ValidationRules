@@ -1,0 +1,18 @@
+#html
+<input name=foo maxlength=3>
+#input
+foo=hog
+
+#html
+<input name=foo maxlength=3>
+#input
+foo=hoge
+#invalid
+foo
+
+#html
+<input name=foo required>
+#input
+foo=
+#invalid
+foo
