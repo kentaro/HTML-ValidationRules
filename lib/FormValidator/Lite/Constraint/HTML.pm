@@ -15,17 +15,14 @@ sub rule_of ($) {
     $FormValidator::Lite::Rules->{$_[0]};
 }
 
-rule HTML_URL => sub {
-    rule_of('HTTP_URL')->();
-};
-
-rule HTML_EMAIL => sub {
-    rule_of('EMAIL')->();
-};
+rule HTML_URL   => rule_of('HTTP_URL');
+rule HTML_EMAIL => rule_of('EMAIL');
 
 rule HTML_NUMBER => sub {
     Scalar::Util::Numeric::isnum($_) ? 1 : 0;
 };
+
+rule HTML_RANGE => rule_of('HTML_NUMBER');
 
 rule HTML_MAXLENGTH => sub {
     rule_of('LENGTH')->(0, shift);

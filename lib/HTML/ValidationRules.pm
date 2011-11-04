@@ -64,11 +64,11 @@ Element
   # rules will be extracted as follows:
   # [
   #     text     => [ [ HTML_PATTERN => '[A-Za-z0-9]+' ], [ HTML_MAXLENGTH => 255 ] ],
-  #     url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
-  #     email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
+  #     url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'NOT_BLANK'         ],
+  #     email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'NOT_BLANK'         ],
   #     number   => [ HTML_NUMBER => [ HTML_MIN => 200 ], [ HTML_MAX => 800 ]       ],
-  #     textarea => [ [ HTML_MAXLENGTH => 1000 ], 'HTML_REQUIRED'                   ],
-  #     range    => [ [ HTML_MAX => 20 ], [ HTML_MIN => 20 ]                        ],
+  #     textarea => [ [ HTML_MAXLENGTH => 1000 ], 'NOT_BLANK'                       ],
+  #     range    => [ HTML_RANGE => [ HTML_MIN => 20 ], [ HTML_MAX => 80 ]          ],
   # ]
 
   # then do validation using FormValidator::Simple

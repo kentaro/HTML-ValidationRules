@@ -174,18 +174,18 @@ HTML_MAXLENGTH 45
 #parsed
 | num
 | HTML_MIN 120
-| HTML_NUMBER
+| HTML_RANGE
 
 #html
 <input type=range name=num max=120>
 #parsed
 | num
 | HTML_MAX 120
-| HTML_NUMBER
+| HTML_RANGE
 
 #html
 <input type=RANGE name=num max=120>
 #parsed
 | num
 | HTML_MAX 120
-| HTML_NUMBER
+| HTML_RANGE

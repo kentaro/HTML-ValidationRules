@@ -25,6 +25,8 @@ sub HTML_NUMBER {
     Scalar::Util::Numeric::isnum($data) ? SUCCESS : FAIL;
 }
 
+*HTML_RANGE = \&HTML_NUMBER;
+
 sub HTML_MAXLENGTH {
     my ($self, $params, $args) = @_;
     my $data      = $params->[0] || '';

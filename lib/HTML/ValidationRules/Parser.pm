@@ -85,7 +85,6 @@ sub start {
 
     if (defined $attr->{type} && $TYPE_ATTR_MAP{lc $attr->{type} || ''}) {
         my $type = $attr->{type};
-        $type = 'number' if (lc $type) eq 'range';
         unshift @rules, key($type);
         $attrseq = [ grep { lc $_ ne 'type' } @$attrseq ];
     }
