@@ -16,6 +16,7 @@ SYNOPSIS
             <input type="email" name="email" maxlength="255" required="required" />
             <input type="number" name="number" min="200" max="800" />
             <textarea name="textarea" maxlength="1000" required></textarea>
+            <input type="range"" name="range" min="20" max="80" />
             <input type="submit" value="submit" />
           </form>
         </body>
@@ -23,23 +24,33 @@ SYNOPSIS
 
       # in your code
       use HTML::ValidationRules;
+
       my $parser = HTML::ValidationRules->new;
       my $rules  = $parser->load_rules(file => 'form.html');
 
       # rules will be extracted as follows:
-      [
-          text     => [ [ HTML_PATTERN => '[A-Za-z0-9]+' ], [ HTML_MAXLENGTH => 255 ] ],
-          url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
-          email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
-          number   => [ HTML_NUMBER => [ HTML_MIN => 200 ], [ HTML_MAX => 800 ]       ],
-          textarea => [ [ HTML_MAXLENGTH => 1000 ], 'HTML_REQUIRED'                   ],
-      ]
+      # [
+      #     text     => [ [ HTML_PATTERN => '[A-Za-z0-9]+' ], [ HTML_MAXLENGTH => 255 ] ],
+      #     url      => [ HTML_URL    => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
+      #     email    => [ HTML_EMAIL  => [ HTML_MAXLENGTH => 255 ], 'HTML_REQUIRED'     ],
+      #     number   => [ HTML_NUMBER => [ HTML_MIN => 200 ], [ HTML_MAX => 800 ]       ],
+      #     textarea => [ [ HTML_MAXLENGTH => 1000 ], 'HTML_REQUIRED'                   ],
+      #     range    => [ [ HTML_MAX => 20 ], [ HTML_MIN => 20 ]                        ],
+      # ]
 
-      # then use the rules with, for example, FormValidator::Simple
+      # then do validation using FormValidator::Simple
       use FormValidator::Simple qw(HTML);
 
       my $query  = CGI->new;
       my $result = FormValidator::Simple->check($query => $rules);
+
+      # or FormValidator::Lite
+      use FormValidator::Lite;
+      FormValidator::Lite->load_constraints('HTML');
+
+      my $query     = CGI->new;
+      my $validator = FormValidator::Lite->new($query);
+      my $result    = $validator->check(@$rules);
 
 DESCRIPTION
     HTML::ValidationRules regards HTML form element as validation rules
@@ -63,14 +74,14 @@ METHODS
 
         Parse HTML and extract validation rules from form element (defined
         as HTML5 client-side form validation spec, but not all of them).
-        $rules has compatible form as args for FormValidator::Simple's'
-        check() method.
+        $rules has compatible form as args for FormValidator::Simple and
+        FormValidator::Lite's check() method.
 
         %args are supposed to contain one of them below:
 
         *   file
 
-            Path to a file or filehandle of it.
+            Path to a file or filehandle.
 
         *   html
 
@@ -78,8 +89,8 @@ METHODS
 
 SUPPORTED ATTRIBUTES
     HTML "input", "textare", and "select" elements can have some attributes
-    related to validation. This module haven't support all the attrs defined
-    in HTML5 spec at all, just have done below yet:
+    related to validation. This module hasn't support all the attrs defined
+    in HTML5 spec yet, just has done below so far:
 
     *   max (input)
 
@@ -107,8 +118,10 @@ BUGS
     common subset of Perl and JavaScript regular expression languages to
     keep compatibility with both Perl and Web browsers.
 
-AUTHOR
-    Kentaro Kuribayashi <kentarok@gmail.com>
+AUTHORS
+    *   Kentaro Kuribayashi <kentarok@gmail.com>
+
+    *   Wakaba <w@suika.fam.cx>
 
 SEE ALSO
     *   <http://www.whatwg.org/specs/web-apps/current-work/multipage/#client
