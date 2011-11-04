@@ -1,23 +1,8 @@
-BEGIN {
-    use inc::Module::Install;
+sub author_tests         {}
+sub readme_from          {}
+sub auto_set_repository  {}
 
-    my @mip = qw(
-        Module::Install::AuthorTests
-        Module::Install::Repository
-        Module::Install::ReadmeFromPod
-    );
-    for (@mip) {
-        eval "require $_";
-        if ($@) {
-            eval "require inc::$_";
-            if ($@) {
-                warn $@;
-                printf("# Install following (perl Makefile.PL | cpanm):\n%s", join("\n", @mip));
-                exit 1;
-            }
-        }
-    }
-}
+use inc::Module::Install;
 
 name        'HTML-ValidationRules';
 all_from    'lib/HTML/ValidationRules.pm';
