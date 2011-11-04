@@ -1,21 +1,27 @@
 use strict;
 use warnings;
-use lib 'modules/testdataparser/lib';
+
 use Test::More;
 use Test::Name::FromLine;
+use Test::Requires qw(
+    FormValidator::Lite
+    FormValidator::Simple
+);
+
+use t::lib::Util;
+use t::lib::Object;
 use Test::HTCT::Parser;
 
-use t::lib::Object;
 use HTML::ValidationRules;
 use FormValidator::Simple qw(HTML);
 use FormValidator::Lite;
 FormValidator::Lite->load_constraints('HTML');
 
-for_each_test 't/data/validation.dat', {
-    html => {is_prefixed => 1},
-    input => {is_prefixed => 1, is_list => 1},
-    parsed => {is_prefixed => 1},
-    invalid => {is_prefixed => 1, is_list => 1},
+for_each_test t::lib::Util::data_file('validation.dat'), {
+    html    => { is_prefixed => 1               },
+    input   => { is_prefixed => 1, is_list => 1 },
+    parsed  => { is_prefixed => 1               },
+    invalid => { is_prefixed => 1, is_list => 1 },
 }, sub {
     my $test = shift;
 
@@ -28,8 +34,8 @@ for_each_test 't/data/validation.dat', {
         $param{$name} = 1;
     }
 
-    my $parser    = HTML::ValidationRules->new;
-    my $rules     = $parser->load_rules(html => $test->{html}->[0]);
+    my $parser = HTML::ValidationRules->new;
+    my $rules  = $parser->load_rules(html => $test->{html}->[0]);
 
     for (@{$test->{invalid}->[0] || []}) {
         $param{$_} = 0;
