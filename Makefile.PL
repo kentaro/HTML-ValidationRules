@@ -23,6 +23,7 @@ test_requires 'Test::More' => 0.96; # done_testing, subtest
 test_requires 'Test::Differences';
 test_requires 'Test::Requires';
 test_requires 'Test::Name::FromLine';
+test_requires 'Exporter::Lite';
 
 author_tests('xt');
 WriteAll;
